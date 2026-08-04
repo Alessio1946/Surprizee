@@ -3,30 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Surprizë ❤️</title>
 
 <style>
+
 body{
     margin:0;
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#ff8fb1,#ffd6e7);
+    background-image:
+    linear-gradient(rgba(255,190,220,0.55),rgba(255,230,245,0.55)),
+    url("https://images.unsplash.com/photo-1587300003388-59208cc962cb");
+    background-size:cover;
+    background-position:center;
     font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+.box{
+    background:rgba(255,255,255,0.9);
+    padding:30px;
+    border-radius:30px;
+    max-width:90%;
+    box-shadow:0 0 25px #ff9fc4;
 }
 
 h1{
-    color:white;
-    text-align:center;
+    color:#ff4f91;
 }
+
+button{
+    padding:15px 30px;
+    margin:10px;
+    border:none;
+    border-radius:50px;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.yes{
+    background:#ff5c9a;
+    color:white;
+}
+
+.no{
+    background:#ffd1e3;
+    color:#777;
+}
+
+.gift{
+    display:none;
+    background:#ff8fbd;
+    color:white;
+    padding:18px;
+    margin:15px;
+    border-radius:25px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#message{
+    display:none;
+    color:#555;
+    line-height:1.7;
+    text-align:left;
+}
+
 </style>
 
 </head>
 
+
 <body>
 
-<h1>❤️ Surpriza po vjen... ❤️</h1>
+<div class="box">
+
+<h1>A e do Elushi Alessin? ❤️</h1>
+
+<button class="yes" onclick="yes()">PO ❤️</button>
+
+<button class="no" onclick="no()">JO 😢</button>
+
+
+<div id="surprises">
+
+<h2 style="display:none" id="title">
+Kam 2 surpriza për ty 🎁❤️
+</h2>
+
+
+<div class="gift" onclick="song()">
+🎁 Surpriza 1 - Kënga jonë 🎵
+</div>
+
+
+<div class="gift" onclick="text()">
+🎁 Surpriza 2 - Për ty ❤️
+</div>
+
+
+</div>
+
+
+<p id="message"></p>
+
+</div>
+
+
+
+<script>
+
+let size=20;
+
+
+function no(){
+
+size-=3;
+
+document.querySelector(".no").style.fontSize=size+"px";
+
+if(size<=5){
+document.querySelector(".no").style.display="none";
+}
+
+}
+
+
+
+function yes(){
+
+document.querySelector(".yes").style.display="none";
+document.querySelector(".no").style.display="none";
+
+document.querySelector("h1").innerHTML="E dija që do thoshe PO ❤️🥹";
+
+document.getElementById("title").style.display="block";
+
+
+document.querySelectorAll(".gift").forEach(function(x){
+
+x.style.display="block";
+
+});
+
+}
+
+
+
+function song(){
+
+window.open(
+"https://youtu.be/6k8cpUkKK4c?si=xQZJLDpo4Yba-MRK",
+"_blank"
+);
+
+}
+
+
+
+function text(){
+
+document.getElementById("message").style.display="block";
+
+
+document.getElementById("message").innerHTML=`
+
+<h3>Elushi im i vogël ❤️</h3>
+
+Kurrë nuk do ta kuptosh plotësisht dashurinë që kam për ty,
+sepse ajo vetëm shtohet dita-ditës.<br><br>
+
+Momentet më të bukura të jetës time i kam kaluar me ty.
+Nga bilardo, ping pong, kinema, pishina, shëtitjet në natyrë
+dhe shumë gjëra të tjera që kemi bërë bashkë...<br><br>
+
+Deri te Sunny Hill Festival, që ishte një nga ditët më të bukura
+të jetës time.<br><br>
+
+Është shumë e bukur të jem i dashuri yt dhe ndihem krenar çdo ditë
+e më shumë që jam i dashuri yt, Elushi im i vogël ❤️<br><br>
+
+Dua të kaloj pafund momente të tjera si këto që kemi krijuar bashkë.
+Kjo është vetëm fillimi i dashurisë sonë.<br><br>
+
+Merre këtë si dhuratë për 1-vjetorin tonë.
+Jam shumë me fat që bëmë 1 vit bashkë, Elushi im 🥹❤️<br><br>
+
+Uroj të festojmë edhe shumë vite të tjera bashkë.
+
+<br><br>
+
+Me dashuri,<br>
+<b>ALESSIO ❤️</b>
+
+`;
+
+}
+
+
+</script>
 
 </body>
 </html>
