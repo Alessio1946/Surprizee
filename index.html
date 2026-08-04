@@ -14,25 +14,33 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background-image:
-    linear-gradient(rgba(255,190,220,0.55),rgba(255,230,245,0.55)),
-    url("https://images.unsplash.com/photo-1587300003388-59208cc962cb");
-    background-size:cover;
-    background-position:center;
+    background:linear-gradient(135deg,#ffd6e8,#fff0f7);
     font-family:Arial,sans-serif;
     text-align:center;
 }
 
 .box{
-    background:rgba(255,255,255,0.9);
+    background:white;
     padding:30px;
-    border-radius:30px;
-    max-width:90%;
-    box-shadow:0 0 25px #ff9fc4;
+    border-radius:35px;
+    width:90%;
+    max-width:400px;
+    box-shadow:0 0 30px #ffb6d9;
+}
+
+.dog{
+    font-size:80px;
+    transition:0.4s;
 }
 
 h1{
-    color:#ff4f91;
+    color:#ff5c9a;
+    font-size:28px;
+}
+
+.cute-text{
+    color:#ff5c9a;
+    font-weight:bold;
 }
 
 button{
@@ -45,17 +53,14 @@ button{
     transition:0.3s;
 }
 
-button:hover{
-    transform:scale(1.1);
-}
-
 .yes{
     background:#ff5c9a;
     color:white;
+    box-shadow:0 5px 15px #ffc0dc;
 }
 
 .no{
-    background:#ffd1e3;
+    background:#ffd6e8;
     color:#777;
 }
 
@@ -66,13 +71,12 @@ button:hover{
     padding:18px;
     margin:15px;
     border-radius:25px;
-    font-size:18px;
     cursor:pointer;
 }
 
 #message{
     display:none;
-    color:#555;
+    color:#ff5c9a;
     line-height:1.7;
     text-align:left;
 }
@@ -86,6 +90,10 @@ button:hover{
 
 <div class="box">
 
+<div class="dog" id="dog">
+🐶
+</div>
+
 <h1>A e do Elushi Alessin? ❤️</h1>
 
 <button class="yes" onclick="yes()">PO ❤️</button>
@@ -93,9 +101,7 @@ button:hover{
 <button class="no" onclick="no()">JO 😢</button>
 
 
-<div id="surprises">
-
-<h2 style="display:none" id="title">
+<h2 id="title" style="display:none;" class="cute-text">
 Kam 2 surpriza për ty 🎁❤️
 </h2>
 
@@ -110,25 +116,39 @@ Kam 2 surpriza për ty 🎁❤️
 </div>
 
 
-</div>
-
-
 <p id="message"></p>
 
-</div>
 
+</div>
 
 
 <script>
 
 let size=20;
+let sad=0;
 
 
 function no(){
 
+sad++;
+
 size-=3;
 
 document.querySelector(".no").style.fontSize=size+"px";
+
+let dog=document.getElementById("dog");
+
+if(sad==1){
+dog.innerHTML="🥺🐶";
+}
+
+if(sad==2){
+dog.innerHTML="😭🐶";
+}
+
+if(sad>=3){
+dog.innerHTML="🥹🐶";
+}
 
 if(size<=5){
 document.querySelector(".no").style.display="none";
@@ -143,15 +163,15 @@ function yes(){
 document.querySelector(".yes").style.display="none";
 document.querySelector(".no").style.display="none";
 
-document.querySelector("h1").innerHTML="E dija që do thoshe PO ❤️🥹";
+document.querySelector("h1").innerHTML=
+"E dija që do thoshe PO ❤️🥹";
+
+document.getElementById("dog").innerHTML="😍🐶";
 
 document.getElementById("title").style.display="block";
 
-
 document.querySelectorAll(".gift").forEach(function(x){
-
 x.style.display="block";
-
 });
 
 }
@@ -173,7 +193,6 @@ function text(){
 
 document.getElementById("message").style.display="block";
 
-
 document.getElementById("message").innerHTML=`
 
 <h3>Elushi im i vogël ❤️</h3>
@@ -182,34 +201,23 @@ Kurrë nuk do ta kuptosh plotësisht dashurinë që kam për ty,
 sepse ajo vetëm shtohet dita-ditës.<br><br>
 
 Momentet më të bukura të jetës time i kam kaluar me ty.
-Nga bilardo, ping pong, kinema, pishina, shëtitjet në natyrë
-dhe shumë gjëra të tjera që kemi bërë bashkë...<br><br>
+Nga bilardo, ping pong, kinema, pishina dhe shëtitjet tona,
+deri te Sunny Hill Festival, një nga ditët më të bukura të jetës time.<br><br>
 
-Deri te Sunny Hill Festival, që ishte një nga ditët më të bukura
-të jetës time.<br><br>
+Jam shumë krenar që jam i dashuri yt, Elushi im i vogël ❤️<br><br>
 
-Është shumë e bukur të jem i dashuri yt dhe ndihem krenar çdo ditë
-e më shumë që jam i dashuri yt, Elushi im i vogël ❤️<br><br>
+Kjo është vetëm fillimi i dashurisë sonë.
+Jam shumë me fat që bëmë 1 vit bashkë 🥹❤️<br><br>
 
-Dua të kaloj pafund momente të tjera si këto që kemi krijuar bashkë.
-Kjo është vetëm fillimi i dashurisë sonë.<br><br>
-
-Merre këtë si dhuratë për 1-vjetorin tonë.
-Jam shumë me fat që bëmë 1 vit bashkë, Elushi im 🥹❤️<br><br>
-
-Uroj të festojmë edhe shumë vite të tjera bashkë.
-
-<br><br>
-
-Me dashuri,<br>
+Me shumë dashuri,<br>
 <b>ALESSIO ❤️</b>
 
 `;
 
 }
 
-
 </script>
+
 
 </body>
 </html>
